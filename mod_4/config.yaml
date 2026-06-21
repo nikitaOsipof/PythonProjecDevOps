@@ -1,0 +1,20 @@
+#«шаблон» с помощью знака & (якорь), знака * (ссылка)
+
+# 1. Создаем базовый шаблон для наших серверов под именем base_settings
+default_server: &base_settings
+  host: "127.0.0.1"
+  environment: "production"
+  timeout: 30
+  logging: "INFO"
+
+# 2. Описываем первый рабочий сервер
+web_server:
+  # Символы <<: * означают: "возьми всё из base_settings и вставь сюда"
+  <<: *base_settings
+  port: 80           # Перезаписываем или добавляем уникальные настройки
+  logging: "DEBUG"   # Значение по умолчанию "INFO" заменится на "DEBUG"
+
+# 3. Описываем второй рабочий сервер
+api_server:
+  <<: *base_settings
+  port: 8080         # Сюда тоже вставились host, environment и timeout!
