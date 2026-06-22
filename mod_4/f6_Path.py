@@ -27,3 +27,10 @@ with open(my_file, "r", encoding="utf-8") as f:
 with open(log_file, "r", encoding="utf-8") as f:
     content = f.read()
     print(content)
+
+# автоматически
+text_f = Path("hello.txt")
+text_f.write_text("Data new", encoding="utf-8")
+
+content = text_f.read_text(encoding="utf-8")
+print(content)

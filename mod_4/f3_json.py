@@ -21,3 +21,8 @@ with open("config.json", "w", encoding="utf-8") as file:
 with open("config.json", "r", encoding="utf-8") as file:
     loaded_data = json.load(file)
     print(loaded_data["username"])  # Выведет: Niko
+
+# dumps - преобразует объект python в строку json
+json_str = json.dumps(data, ensure_ascii=False, indent=4)
+
+print(json_str)
